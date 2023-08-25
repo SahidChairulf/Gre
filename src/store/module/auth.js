@@ -37,12 +37,13 @@ const auth = {
           credentials
         );
         const token = response.data.access_token;
-        if(token == undefined) {
-          this.$router.push('/login');
-        } else if (token == true) {
-          this.$router.get('/login');
-          alert('Anda Sudah Login')
-        }
+        // if(token == undefined) {
+        //   this.$router.push('/login');
+        // } 
+        // else if (token == true) {
+        //   this.$router.get('/login');
+        //   alert('Anda Sudah Login')
+        // }
 
         // Save token to localStorage
         localStorage.setItem("token", token);

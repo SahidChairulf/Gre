@@ -22,45 +22,56 @@
       <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
         <div class="mx-auto max-w-3xl">
           <header class="text-center">
-            <h1 class="text-xl font-bold text-gray-900 sm:text-3xl">Your Cart</h1>
+            <h1 class="text-xl font-bold text-green-600 sm:text-3xl">Your Cart</h1>
           </header>
 
           <div class="mt-8">
             <ul class="space-y-4">
-              <li class="flex items-center gap-4" v-for="(product) in cartGetData.cart_items.data" :key="product.id">
+              <li class="flex items-center gap-4" v-for="(cart) in cartGetData.cart_items.data" :key="cart.id">
                 <img
                   src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=830&q=80"
                   alt="" class="h-16 w-16 rounded object-cover" />
 
                 <div>
-                  <h3 class="text-sm text-gray-900">{{ product.name }} </h3>
+                  <h3 class="text-sm text-gray-900">{{ cart.name }} </h3>
 
                   <dl class="mt-0.5 space-y-px text-[10px] text-gray-600">
                     <div>
                       <dt class="inline">Price:</dt>
-                      <dd class="inline">£ {{ product.regular_price }}</dd>
+                      <dd class="inline">£ {{ cart.regular_price * cart.qty }}</dd>
                     </div>
                     <div>
                       <dt class="inline">Stock:</dt>
-                      <dd class="inline">{{ product.stock }}</dd>
+                      <dd class="inline">{{ cart.stock }}</dd>
                     </div>
-
+                    <div>
+                      <dt class="inline">qty:</dt>
+                      <dd class="inline">{{ cart.qty }}</dd>
+                    </div>
                     <div>
                       <dt class="inline">Color:</dt>
                       <dd class="inline">White</dd>
                     </div>
+
                   </dl>
                 </div>
-
+                <!-- {{ cart.cart_id }} -->
                 <div class="flex flex-1 items-center justify-end gap-2">
                   <form>
-                    <label for="Line1Qty" class="sr-only"> Quantity </label>
-
-                    <input type="number" min="1" value="1" id="Line1Qty"
-                      class="h-8 w-12 rounded border-gray-200 bg-gray-50 p-0 text-center text-xs text-gray-600 [-moz-appearance:_textfield] focus:outline-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none" />
+                    <label for="Line1Qty" class="sr-only"> Count </label>
+                    <div class="flex border-gray-100">
+                            <span @click="tambah" class=" cursor-pointer text-black focus:outline-none focus:text-gray-600">
+                                <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </span>
+                            <span class="text-black focus:outline-none focus:text-gray-600 mx-2">{{ number }}</span>
+                            <span @click="kurang" class="cursor-pointer text-black focus:outline-none focus:text-gray-600">
+                                <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </span>
+                    </div>
+                    <!-- <input type="number" value="1" min="1" id="Line1Qty"
+                      class="h-8 w-12 rounded border-gray-200 bg-gray-50 p-0 text-center text-xs text-gray-600 [-moz-appearance:_textfield] focus:outline-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none" /> -->
                   </form>
-
-                  <button class="text-gray-600 transition hover:text-red-600">
+                  <button @click="fetchDeleteData(cart.cart_id)" class="text-gray-600 transition hover:text-red-600">
                     <span class="sr-only">Remove item</span>
 
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -78,7 +89,7 @@
                 <dl class="space-y-0.5 text-sm text-gray-700">
                   <div class="flex justify-between">
                     <dt>Subtotal</dt>
-                    <dd>£250</dd>
+                    <dd>£{{ getSubtotal }}</dd>
                   </div>
 
                   <div class="flex justify-between">
@@ -88,12 +99,12 @@
 
                   <div class="flex justify-between">
                     <dt>Discount</dt>
-                    <dd>-£20</dd>
+                    <dd>-£{{ getDiscount }}</dd>
                   </div>
 
                   <div class="flex justify-between !text-base font-medium">
                     <dt>Total</dt>
-                    <dd>£200</dd>
+                    <dd>£{{ getTotal }}</dd>
                   </div>
                 </dl>
 
@@ -106,7 +117,7 @@
                         d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 010 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 010-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375z" />
                     </svg>
 
-                    <p class="whitespace-nowrap text-xs">2 Discounts Applied</p>
+                    <p class="whitespace-nowrap text-xs">1 Discounts Applied</p>
                   </span>
                 </div>
 
@@ -122,87 +133,50 @@
         </div>
       </div>
     </section>
-    <!-- <div class="relative mx-auto w-full bg-white">
-  <div class="grid min-h-screen grid-cols-10">
-    <div class="col-span-full py-6 px-4 sm:py-12 lg:col-span-6 lg:py-24">
-      <div class="mx-auto w-full max-w-lg">
-        <h1 class="relative text-2xl font-medium text-gray-700 sm:text-3xl">Secure Checkout<span class="mt-2 block h-1 w-10 bg-teal-600 sm:w-20"></span></h1>
-        <form action="" class="mt-10 flex flex-col space-y-4">
-          <div><label for="email" class="text-xs font-semibold text-gray-500">Email</label><input type="email" id="email" name="email" placeholder="john.capler@fang.com" class="mt-1 block w-full rounded border-gray-300 bg-gray-50 py-3 px-4 text-sm placeholder-gray-300 shadow-sm outline-none transition focus:ring-2 focus:ring-teal-500" /></div>
-          <div class="relative"><label for="card-number" class="text-xs font-semibold text-gray-500">Card number</label><input type="text" id="card-number" name="card-number" placeholder="1234-5678-XXXX-XXXX" class="block w-full rounded border-gray-300 bg-gray-50 py-3 px-4 pr-10 text-sm placeholder-gray-300 shadow-sm outline-none transition focus:ring-2 focus:ring-teal-500" /><img src="/images/uQUFIfCYVYcLK0qVJF5Yw.png" alt="" class="absolute bottom-3 right-3 max-h-4" /></div>
-          <div>
-            <p class="text-xs font-semibold text-gray-500">Expiration date</p>
-            <div class="mr-6 flex flex-wrap">
-              <div class="my-1">
-                <label for="month" class="sr-only">Select expiration month</label
-                ><select name="month" id="month" class="cursor-pointer rounded border-gray-300 bg-gray-50 py-3 px-2 text-sm shadow-sm outline-none transition focus:ring-2 focus:ring-teal-500">
-                  <option value="">Month</option>
-                </select>
-              </div>
-              <div class="my-1 ml-3 mr-6">
-                <label for="year" class="sr-only">Select expiration year</label
-                ><select name="year" id="year" class="cursor-pointer rounded border-gray-300 bg-gray-50 py-3 px-2 text-sm shadow-sm outline-none transition focus:ring-2 focus:ring-teal-500">
-                  <option value="">Year</option>
-                </select>
-              </div>
-              <div class="relative my-1"><label for="security-code" class="sr-only">Security code</label><input type="text" id="security-code" name="security-code" placeholder="Security code" class="block w-36 rounded border-gray-300 bg-gray-50 py-3 px-4 text-sm placeholder-gray-300 shadow-sm outline-none transition focus:ring-2 focus:ring-teal-500" /></div>
-            </div>
-          </div>
-          <div><label for="card-name" class="sr-only">Card name</label><input type="text" id="card-name" name="card-name" placeholder="Name on the card" class="mt-1 block w-full rounded border-gray-300 bg-gray-50 py-3 px-4 text-sm placeholder-gray-300 shadow-sm outline-none transition focus:ring-2 focus:ring-teal-500" /></div>
-        </form>
-        <p class="mt-10 text-center text-sm font-semibold text-gray-500">By placing this order you agree to the <a href="#" class="whitespace-nowrap text-teal-400 underline hover:text-teal-600">Terms and Conditions</a></p>
-        <button type="submit" class="mt-4 inline-flex w-full items-center justify-center rounded bg-teal-600 py-2.5 px-4 text-base font-semibold tracking-wide text-white text-opacity-80 outline-none ring-offset-2 transition hover:text-opacity-100 focus:ring-2 focus:ring-teal-500 sm:text-lg">Place Order</button>
-      </div>
-    </div>
-    <div class="relative col-span-full flex flex-col py-6 pl-8 pr-4 sm:py-12 lg:col-span-4 lg:py-24">
-      <h2 class="sr-only">Order summary</h2>
-      <div>
-        <img src="https://source.unsplash.com/random/900×700/?3d-renders"  alt="" class="absolute inset-0 h-full w-full object-cover" />
-        <div class="absolute inset-0 h-full w-full bg-gradient-to-t from-teal-800 to-teal-400 opacity-95"></div>
-      </div>
-      <div class="relative">
-        <ul class="space-y-5">
-          <li class="flex justify-between" v-for="(product) in cartGetData.cart_items.data" :key="product.id">
-            <div class="inline-flex">
-              <img src="https://images.unsplash.com/photo-1620331311520-246422fd82f9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGhhaXIlMjBkcnllcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="" class="max-h-16" />
-              <div class="ml-3">
-                <p class="text-base font-semibold text-white">{{ product.name }}</p>
-                <p class="text-sm font-medium text-white text-opacity-80">leftover items {{ product.stock }}</p>
-              </div>
-            </div>
-            <p class="text-sm font-semibold text-white">${{ product.regular_price }}</p>
-          </li>
-        </ul>
-        <div class="my-5 h-0.5 w-full bg-white bg-opacity-30"></div>
-        <div class="space-y-2">
-          <p class="flex justify-between text-lg font-bold text-white"><span>Total price:</span><span>$510.00</span></p>
-          <p class="flex justify-between text-sm font-medium text-white"><span>Vat: 10%</span><span>$55.00</span></p>
-        </div>
-      </div>
-      <div class="relative mt-10 text-white">
-        <h3 class="mb-5 text-lg font-bold">Support</h3>
-        <p class="text-sm font-semibold">+01 653 235 211 <span class="font-light">(International)</span></p>
-        <p class="mt-1 text-sm font-semibold">support@nanohair.com <span class="font-light">(Email)</span></p>
-        <p class="mt-2 text-xs font-medium">Call us now for payment related issues</p>
-      </div>
-      <div class="relative mt-10 flex">
-        <p class="flex flex-col"><span class="text-sm font-bold text-white">Money Back Guarantee</span><span class="text-xs font-medium text-white">within 30 days of purchase</span></p>
-      </div>
-    </div>
-  </div>
-</div> -->
   </div>
 </template>
 <script>
 ;
-import { mapActions, mapGetters, mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 
 export default {
   computed: {
-    ...mapState('cart', ['cartGetData'])
+    ...mapState('cart', ['cartGetData']),
+    getSubtotal() {
+      return this.cartGetData.cart_items.data.reduce(
+        (a, b) => a + b.regular_price * b.qty,
+        0
+      )
+    },
+    getDiscount() {
+      return this.cartGetData.cart_items.data.reduce(
+        (a, b) => a + b.dicounted_price,
+        0
+      )
+    },
+    getTotal() {
+      return this.cartGetData.cart_items.data.reduce(
+        (a, b) => a + b.regular_price * b.qty - b.dicounted_price,
+        0
+      )
+    },
   },
   mounted() {
     this.$store.dispatch("cart/fetchgetCartData", localStorage.getItem('token'))
   },
-};
+  methods: {
+    ...mapActions('cart', ['fetchDeleteData']),
+    tambah() {
+      this.number++;
+    },
+    kurang() {
+      this.number--;
+    },
+  },
+  data() {
+    return {
+      number: 0,
+    };
+  },
+}; 
 </script>

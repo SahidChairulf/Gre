@@ -5,11 +5,11 @@ const product = {
   state : {
     dataProducts: [],
     getproductid : [],
-    addCart: [],
+    // addCart: [],
   },
   getters: {
     getProducts: (state) => state.dataProducts,
-    getCartadd: (state) => state.addCart,
+    // getCartadd: (state) => state.addCart,
   },
   actions: {
     async fetchProducts({
@@ -34,27 +34,27 @@ const product = {
         console.log(error);
       }
     },
-      async addToCart({ commit } , data ) {
-    try {
-      const response = await axios.post(
-        `https://ecommerce.olipiskandar.com/api/v1/carts/add`,
-        {
-            "variation_id": data.variation_id,
-            "qty": data.qty,
-            // "temp_user_id": null,
-        },
-        {
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem("token")}`
-            }
-        });
+  //     async addToCart({ commit } , data ) {
+  //   try {
+  //     const response = await axios.post(
+  //       `https://ecommerce.olipiskandar.com/api/v1/carts/add`,
+  //       {
+  //           "variation_id": data.variation_id,
+  //           "qty": data.qty,
+  //           // "temp_user_id": null,
+  //       },
+  //       {
+  //           headers: {
+  //               Authorization: `Bearer ${localStorage.getItem("token")}`
+  //           }
+  //       });
 
-      console.log(response.data);
-      commit("ADD_TO_CART", response.data);
-    } catch (error) {
-      console.error(error);
-    }
-  },
+  //     console.log(response.data);
+  //     commit("ADD_TO_CART", response.data);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // },
   },
   mutations: {
     SET_PRODUCTS(state, product) {
@@ -63,9 +63,9 @@ const product = {
     SET_PRODUCTSID(state, product) {
       state.getproductid = product
     },
-    ADD_TO_CART(state, addtoCart) {
-      state.addCart = addtoCart;
-    },
+    // ADD_TO_CART(state, addtoCart) {
+    //   state.addCart = addtoCart;
+    // },
   },
 }
 

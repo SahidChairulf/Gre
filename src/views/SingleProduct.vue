@@ -40,7 +40,8 @@
                     </div>
                     <div class="flex items-center mt-6">
                         <!-- <div v-if="isAuthenticated"> -->
-                        <button @click="addToCart({ variation_id : getproductid.data.variations[0].id,qty:1})" class="px-8 py-2 bg-green-500 text-black text-sm font-medium rounded hover:bg-green-800 focus:outline-none focus:bg-green-600">Order Now</button>
+                        <button v-if="isAuthenticated" @click="addToCart({ variation_id : getproductid.data.variations[0].id,qty:1})" class="px-8 py-2 bg-green-500 text-black text-sm font-medium rounded hover:bg-green-800 focus:outline-none focus:bg-green-600">Order Now</button>
+                        <button v-else @click="$router.push('/login')" class="px-8 py-2 bg-green-500 text-black text-sm font-medium rounded hover:bg-green-800 focus:outline-none focus:bg-green-600">Order Now</button>
                         <!-- </div> -->
                     <!-- <div v-else>
                         <button class="px-8 py-2 bg-green-500 text-black text-sm font-medium rounded hover:bg-green-800 focus:outline-none focus:bg-green-600">Order Now</button>
@@ -56,8 +57,6 @@
             </div>
         </div>
     </main>
-
-    {{ getproductid.data.variations[0].id }}
 </div>
 </template>
 <script>
@@ -70,7 +69,7 @@ import { mapState,mapGetters, mapActions } from 'vuex';
         this.$store.dispatch("product/fetchProductsId", this.slug)
     },
     methods:{
-        ...mapActions('product' , ['addToCart']),
+        ...mapActions('cart' , ['addToCart']),
     },
     computed: {
         // ...mapState('product', ['addCart']),

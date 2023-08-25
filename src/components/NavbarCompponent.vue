@@ -4,7 +4,7 @@
     <div>
       <div class="relative">
         <!-- For md screen size -->
-        <div id="md-searchbar"
+        <!-- <div id="md-searchbar"
           class="bg-white dark:bg-white hidden lg:hidden py-5 px-6 items-center justify-between shadow-lg">
           <div class="flex items-center space-x-3 text-green-600 hover:text-green-800 dark:text-white">
             <div>
@@ -43,6 +43,11 @@
                   d="M12.5564 7.3999C12.5564 8.2486 12.1818 9.06253 11.515 9.66264C10.8482 10.2628 9.94386 10.5999 9.00087 10.5999C8.05788 10.5999 7.15351 10.2628 6.48671 9.66264C5.81991 9.06253 5.44531 8.2486 5.44531 7.3999"
                   stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
+              <div v-if="cartGetData.cart_items != undefined && cartGetData.cart_items.data.length > 0">
+                             <span class="absolute -top-2 left-5 rounded-full bg-red-500 p-0.5 px-2 text-sm text-red-50">
+                              {{ cartGetData.cart_items.data.length }}
+                          </span>
+                </div>
             </button>
             <button aria-label="user"
               class="text-green-600 hover:text-green-800 dark:hover:text-gray-300 dark:text-white focus:outline-none">
@@ -53,16 +58,18 @@
               </svg>
             </button>
           </div>
-        </div>
+        </div> -->
         <!-- For md screen size -->
 
         <!-- For large screens -->
         <div class="dark:bg-[#a1cd46} bg-white px-6 py-6 shadow-lg">
           <div class="container mx-auto flex items-center justify-between">
-            <h1 class="text-2xl cursor-pointer text-green-600 hover:text-[#AA8B56] dark:text-white"
+            <RouterLink to="/">
+            <h1 class="text-2xl cursor-pointer dark:text-white"
               aria-label="the Crib.">
-              <h1 class="logo">Green<span class="text-[#AA8B56] hover:text-green-600">Grosir</span></h1>
+              <h1 class="logo text-green-600 hover:text-[#002D74]">Green<span class="text-[#002D74] hover:text-green-600">Grosir</span></h1>
             </h1>
+          </RouterLink>
             <ul class="hidden w-8/12 md:flex items-center justify-center space-x-8">
               <RouterLink to="/">
                 <li>
@@ -118,8 +125,12 @@
                         d="M18.3346 10.6001C18.3346 11.8731 17.7727 13.094 16.7725 13.9942C15.7723 14.8944 14.4158 15.4001 13.0013 15.4001C11.5868 15.4001 10.2303 14.8944 9.23007 13.9942C8.22987 13.094 7.66797 11.8731 7.66797 10.6001"
                         stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
+                    <div v-if="cartGetData.cart_items != undefined && cartGetData.cart_items.data.length > 0">
+                             <span class="absolute -top-2 left-5 rounded-full bg-red-500 p-0.5 px-2 text-sm text-red-50">
+                              {{ cartGetData.cart_items.data.length }}
+                          </span>
+                        </div>
                   </button>
-                  <span class="absolute -top-2 left-4 rounded-full bg-red-500 p-0.5 px-2 text-sm text-red-50" v-for="(product) in cartGetData.cart_items" :key="product.id">{{ product.length }}</span>
                 </div>
                   </div>
 
@@ -154,11 +165,11 @@
             </div>
             <div v-else class="flex md:order-2">
               <router-link to="/login" type="button"
-                class="block lg:inline-block text-md font-bold  text-green-600 sm:hover:border-indigo-400  hover:text-green-700 mx-2 focus:text-[#ff8906]  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
+                class="block lg:inline-block text-md font-bold  text-green-600 sm:hover:border-indigo-400  hover:text-green-700 mx-2 focus:text-[bg-green-800]  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
                 LOGIN
               </router-link>
               <router-link to="/signup" type="button"
-                class="block lg:inline-block text-md font-bold  text-green-600 sm:hover:border-indigo-400  hover:text-green-700 mx-2 focus:text-[#ff8906]  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
+                class="block lg:inline-block text-md font-bold  text-green-600 sm:hover:border-indigo-400  hover:text-green-700 mx-2 focus:text-[bg-green-800]  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
                 SIGN UP
               </router-link>
             </div>
@@ -194,6 +205,7 @@
           </div>
           <div class="mt-6 p-4">
             <ul class="flex flex-col space-y-6">
+              <RouterLink to="/">
               <li>
                 <a href="javascript:void(0)"
                   class="dark:text-white flex items-center justify-between hover:underline text-bold text-green-600 hover:text-green-800 focus:outline-none">
@@ -207,10 +219,12 @@
                   </div>
                 </a>
               </li>
+            </RouterLink>
+            <RouterLink to="/product">
               <li>
                 <a href="javascript:void(0)"
                   class="dark:text-white flex items-center justify-between hover:underline text-bold text-green-600 hover:text-green-800 focus:outline-none">
-                  Furniture
+                  Product
                   <div>
                     <svg class="fill-stroke text-black dark:text-white" width="12" height="12" viewBox="0 0 12 12"
                       fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -220,10 +234,12 @@
                   </div>
                 </a>
               </li>
+            </RouterLink>
+            <RouterLink to="/categori">
               <li>
                 <a href="javascript:void(0)"
                   class="dark:text-white flex items-center justify-between hover:underline text-bold text-green-600 hover:text-green-800 focus:outline-none">
-                  Lookbook
+                  Categori
                   <div>
                     <svg class="fill-stroke text-black dark:text-white" width="12" height="12" viewBox="0 0 12 12"
                       fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -233,10 +249,12 @@
                   </div>
                 </a>
               </li>
+            </RouterLink>
+            <RouterLink to="/brand">
               <li>
                 <a href="javascript:void(0)"
                   class="dark:text-white flex items-center justify-between hover:underline text-bold text-green-600 hover:text-green-800 focus:outline-none">
-                  Support
+                  Brand
                   <div>
                     <svg class="fill-stroke text-black dark:text-white" width="12" height="12" viewBox="0 0 12 12"
                       fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -246,10 +264,12 @@
                   </div>
                 </a>
               </li>
+            </RouterLink>
             </ul>
         </div>
         <div class="flex items-end">
           <ul class="flex flex-col space-y-8 bg-white w-full py-10 p-4 dark:bg-gray-800">
+            <RouterLink to="/cart">
             <li>
               <a href="javascript:void(0)"
                 class="dark:text-white text-green-600 hover:text-green-800 flex items-center space-x-2 focus:outline-none hover:underline">
@@ -269,6 +289,7 @@
                 <p class="text-bold">Cart</p>
               </a>
             </li>
+          </RouterLink>
             <li>
               <a href="javascript:void(0)"
                 class="dark:text-white text-green-600 hover:text-green-800 flex items-center space-x-2 focus:outline-none hover:underline">
@@ -283,6 +304,7 @@
                 <p class="text-bold">Wishlist</p>
               </a>
             </li>
+            <RouterLink to="/user">
             <li>
               <a href="javascript:void(0)"
                 class="dark:text-white text-green-600 hover:text-green-800 flex items-center space-x-2 focus:outline-none hover:underline">
@@ -296,6 +318,7 @@
                 <p class="text-bold">User</p>
               </a>
             </li>
+          </RouterLink>
           </ul>
         </div>
       </div>
@@ -315,28 +338,20 @@
   font-family: 'Rowdies', cursive;
 }</style>
 <script>
+import { RouterLink } from 'vue-router';
 import { mapActions, mapGetters, mapState } from 'vuex';
 
 export default {
-  computed: {
-    ...mapGetters('auth', ['isAuthenticated']),
-    // ...mapState('cart', ['cartData']),
-    ...mapState('cart', ['cartGetData'])
-  },
-  mounted() {
-        // this.$store.dispatch("cart/fetchCartData", localStorage.getItem('token'))
-        this.$store.dispatch("cart/fetchgetCartData", localStorage.getItem('token'))
-        // console.log(localStorage.getItem('token'))
+    computed: {
+        ...mapGetters('auth', ['isAuthenticated']),
+        ...mapState('cart', ['cartGetData'])
     },
-  methods: {
-    ...mapActions('auth', ['logout']),
-  },
-  // TotalCartPrice: function() {
-  //     var total = 0;
-  //     for (var i = 0; i < this.cart_items.length; i++) {
-  //       total += this.cart_items[i].product.price * this.cart_items[i].quantity;
-  //     }
-  //     return total;
-  //   }
+    mounted() {
+        this.$store.dispatch("cart/fetchgetCartData", localStorage.getItem('token'));
+    },
+    methods: {
+        ...mapActions('auth', ['logout']),
+    },
+    components: { RouterLink }
 };
 </script>
