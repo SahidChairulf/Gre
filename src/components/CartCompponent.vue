@@ -60,11 +60,11 @@
                   <form>
                     <label for="Line1Qty" class="sr-only"> Count </label>
                     <div class="flex border-gray-100">
-                            <span @click="tambah" class=" cursor-pointer text-black focus:outline-none focus:text-gray-600">
+                            <span @click="fetchEditData({cart_id :cart.cart_id, type:'plus'})" class=" cursor-pointer text-black focus:outline-none focus:text-gray-600">
                                 <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                             </span>
-                            <span class="text-black focus:outline-none focus:text-gray-600 mx-2">{{ number }}</span>
-                            <span @click="kurang" class="cursor-pointer text-black focus:outline-none focus:text-gray-600">
+                            <span class="text-black focus:outline-none focus:text-gray-600 mx-2">{{ cart.qty }}</span>
+                            <span @click="fetchEditData({cart_id :cart.cart_id, type:'minus'})" class="cursor-pointer text-black focus:outline-none focus:text-gray-600">
                                 <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                             </span>
                     </div>
@@ -166,17 +166,7 @@ export default {
   },
   methods: {
     ...mapActions('cart', ['fetchDeleteData']),
-    tambah() {
-      this.number++;
-    },
-    kurang() {
-      this.number--;
-    },
-  },
-  data() {
-    return {
-      number: 0,
-    };
+    ...mapActions('cart', ['fetchEditData']),
   },
 }; 
 </script>

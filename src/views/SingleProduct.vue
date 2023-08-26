@@ -8,55 +8,52 @@
     </div>
     </div>
     <div v-else>
-    <main class="my-8">
-        <div class="container h-screen mx-auto px-6">
-            <div class="md:flex md:items-center">
-                <div class="w-full h-64 md:w-1/2 lg:h-96">
-                    <img src="https://img.freepik.com/free-vector/forgot-password-concept-illustration_114360-1328.jpg?size=626&ext=jpg&ga=GA1.1.1506769116.1690802231&semt=ais" class="h-full w-full rounded-md object-cover max-w-lg mx-auto">
+<div class="min-w-screen min-h-screen bg-gray-100 flex items-center p-5 lg:p-10 overflow-hidden relative">
+    <div class="w-full max-w-6xl rounded bg-white shadow-xl p-10 lg:p-20 mx-auto text-gray-800 relative md:text-left">
+        <div class="md:flex items-center -mx-10">
+            <div class="w-full md:w-1/2 px-10 mb-10 md:mb-0">
+                <div class="relative">
+                    <img src="https://source.unsplash.com/random/?fruit-png.png" class="w-full relative z-10" alt="">
+                    <div class="border-4 border-green-200 absolute top-10 bottom-10 left-10 right-10 z-0"></div>
                 </div>
-                <div class="w-full max-w-lg mx-auto mt-5 md:ml-8 md:mt-0 md:w-1/2">
-                    <h3 class="text-black uppercase text-lg">{{ getproductid.data.name }}</h3>
-                    <span class="text-black mt-3">$125</span>
-                    <hr class="my-3">
+            </div>
+            <div class="w-full md:w-1/2 px-10">
+                <div class="mb-10">
+                    <h1 class="font-bold uppercase text-2xl mb-5">{{ getproductid.data.name }}<br><span class="text-2x1 lowercase underline">GreenGrosir</span></h1>
+                    <p class="text-sm">Lorem ipsum dolor sit, amet consectetur adipisicing, elit. Eos, voluptatum dolorum! Laborum blanditiis consequatur, voluptates, sint enim fugiat saepe, dolor fugit, magnam explicabo eaque quas id quo porro dolorum facilis... <a href="#" class="opacity-50 text-gray-900 hover:opacity-100 inline-block text-xs leading-none border-b border-gray-900">MORE <i class="mdi mdi-arrow-right"></i></a></p>
                     <div class="mt-2">
                         <label class="text-black text-sm" for="count">Count:</label>
                         <div class="flex items-center mt-1">
-                            <button class="text-black focus:outline-none focus:text-gray-600">
+                            <button @click="tambah" class="text-black focus:outline-none focus:text-gray-600">
                                 <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                             </button>
-                            <span class="text-black text-lg mx-2">20</span>
-                            <button class="text-black focus:outline-none focus:text-gray-600">
+                            <span class="text-black text-lg mx-2">{{ number }}</span>
+                            <button @click="kurang" class="text-black focus:outline-none focus:text-gray-600">
                                 <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                             </button>
                         </div>
                     </div>
-                    <div class="mt-3">
-                        <label class="text-black text-sm" for="count">Color:</label>
-                        <div class="flex items-center mt-1">
-                            <button class="h-5 w-5 rounded-full bg-blue-600 border-2 border-blue-200 mr-2 focus:outline-none"></button>
-                            <button class="h-5 w-5 rounded-full bg-teal-600 mr-2 focus:outline-none"></button>
-                            <button class="h-5 w-5 rounded-full bg-pink-600 mr-2 focus:outline-none"></button>
-                        </div>
+                </div>
+                <div>
+                    <div class="inline-block align-bottom mr-5">
+                        <span class="text-2xl leading-none align-baseline">$</span>
+                        <span class="font-bold text-5xl leading-none align-baseline">{{ getproductid.data.base_price  }}</span>
                     </div>
-                    <div class="flex items-center mt-6">
-                        <!-- <div v-if="isAuthenticated"> -->
-                        <button v-if="isAuthenticated" @click="addToCart({ variation_id : getproductid.data.variations[0].id,qty:1})" class="px-8 py-2 bg-green-500 text-black text-sm font-medium rounded hover:bg-green-800 focus:outline-none focus:bg-green-600">Order Now</button>
-                        <button v-else @click="$router.push('/login')" class="px-8 py-2 bg-green-500 text-black text-sm font-medium rounded hover:bg-green-800 focus:outline-none focus:bg-green-600">Order Now</button>
-                        <!-- </div> -->
-                    <!-- <div v-else>
-                        <button class="px-8 py-2 bg-green-500 text-black text-sm font-medium rounded hover:bg-green-800 focus:outline-none focus:bg-green-600">Order Now</button>
-                    </div> -->
+                    <div class="inline-block align-bottom">
+                        <button v-if="isAuthenticated" @click="addToCart({ variation_id : getproductid.data.variations[0].id,qty:number})" class="bg-green-500 opacity-75 hover:opacity-100 text-green-900 hover:text-gray-900 rounded-full px-10 py-2 font-semibold"><i class="mdi mdi-cart -ml-2 mr-2"></i> BUY NOW</button>
+                        <button v-else @click="$router.push('/login')" class="bg-green-500 opacity-75 hover:opacity-100 text-green-900 hover:text-gray-900 rounded-full px-10 py-2 font-semibold"><i class="mdi mdi-cart -ml-2 mr-2"></i> BUY NOW</button>
+                    </div>
                         <button v-if="isAuthenticated" @click="$router.push('/cart')" class="mx-2 text-gray-600 border rounded-md p-2 hover:bg-gray-200 focus:outline-none">
                             <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
                         </button>
                         <button v-else @click="$router.push('/login')" class="mx-2 text-gray-600 border rounded-md p-2 hover:bg-gray-200 focus:outline-none">
                             <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
                         </button>
-                    </div>
                 </div>
             </div>
         </div>
-    </main>
+    </div>
+</div>
 </div>
 </template>
 <script>
@@ -70,11 +67,24 @@ import { mapState,mapGetters, mapActions } from 'vuex';
     },
     methods:{
         ...mapActions('cart' , ['addToCart']),
+    tambah() {
+      this.number++;
+    },
+    kurang() {
+    if (this.number > 1) {
+        this.number--;
+    }
+    },
     },
     computed: {
         // ...mapState('product', ['addCart']),
         ...mapState('product', ['getproductid']),
         ...mapGetters('auth', ['isAuthenticated'])
     },
+    data() {
+    return {
+      number: 1,
+    };
+  },
 }
 </script>

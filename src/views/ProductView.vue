@@ -10,11 +10,11 @@
     <div v-else>
     <main class="my-8">
         <div class="container h-full mx-auto px-6">
-            <center>
-            <h3 class="text-black items-center justify-center text-2xl font-medium">
+            <h3 class="text-black text-center items-center justify-center text-2xl font-medium">
                 Wrist Watch</h3>
-            <span class="mt-3 text-sm text-black">200+ Products</span>
-            </center>
+                <h3 class="text-black text-sm text-center items-center justify-center font-medium">
+                    200+ Products</h3>
+        
             <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
                 <div class="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden" v-for="(product) in getProducts.products.data" :key="product.id">
                     <div class="flex items-end justify-end h-56 w-full bg-cover" style="background-image: url('https://img.freepik.com/free-vector/forgot-password-concept-illustration_114360-1328.jpg?size=626&ext=jpg&ga=GA1.1.1506769116.1690802231&semt=ais')">

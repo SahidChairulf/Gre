@@ -59,10 +59,34 @@ const cart = {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }
             });
-            console.log(respon.data)
+            // console.log(respon.data)
             commit("CART_INFO_ITEM",respon.data)
           }
       },
+      async fetchEditData({ commit }, edit) {
+
+        try {
+            const response = await axios.post(`https://ecommerce.olipiskandar.com/api/v1/carts/change-quantity`,
+                    edit,
+                    // temp_user_id : null
+                {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem("token")}`
+                    }
+                });
+          //   console.log(response.data);
+            commit("CART_INFO_ITEM", response.data);
+        }
+        catch (err) {
+            console.log(err);
+            console.log({ success: false, err });
+            commit("CART_INFO_ITEM", { success: false, err });
+        } finally {
+             location.reload()
+            // console.log(respon.data)
+            // commit("CART_INFO_ITEM",respon.data)
+          }
+    },
       async fetchDeleteData({ commit }, cart_id ) {
 
         try {
