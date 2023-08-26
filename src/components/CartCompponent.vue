@@ -19,8 +19,8 @@
 -->
 
     <section>
-      <div class="min-w-screen min-h-screen bg-gray-100 flex items-center p-5 lg:p-10 overflow-hidden relative">
-      <div class="mx-auto bg-white rounded max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+      <div class="min-w-screen min-h-screen bg-gray-100">
+      <div class="mx-auto bg-white ronded max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
         <div class="mx-auto max-w-3xl">
           <header class="text-center">
             <h1 class="text-xl font-bold text-green-600 sm:text-3xl">Your Cart</h1>
