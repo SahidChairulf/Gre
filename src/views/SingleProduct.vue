@@ -13,13 +13,13 @@
         <div class="md:flex items-center -mx-10">
             <div class="w-full md:w-1/2 px-10 mb-10 md:mb-0">
                 <div class="relative">
-                    <img src="https://source.unsplash.com/random/?fruit-png.png" class="w-full relative z-10" alt="">
+                    <img src="https://pngimg.com/uploads/raincoat/raincoat_PNG53.png" class="w-full relative z-10" alt="">
                     <div class="border-4 border-green-200 absolute top-10 bottom-10 left-10 right-10 z-0"></div>
                 </div>
             </div>
             <div class="w-full md:w-1/2 px-10">
                 <div class="mb-10">
-                    <h1 class="font-bold uppercase text-2xl mb-5">{{ getproductid.data.name }}<br><span class="text-2x1 lowercase underline">GreenGrosir</span></h1>
+                    <h1 class="font-bold uppercase text-2xl mb-5">{{ getproductid.data.name }}<br><span class="text-2x1  text-green-600 hover:text-[#002D74]">G<span class="lowercase">reen</span>G<span class="lowercase">rosir</span> Shop</span></h1>
                     <p class="text-sm">Lorem ipsum dolor sit, amet consectetur adipisicing, elit. Eos, voluptatum dolorum! Laborum blanditiis consequatur, voluptates, sint enim fugiat saepe, dolor fugit, magnam explicabo eaque quas id quo porro dolorum facilis... <a href="#" class="opacity-50 text-gray-900 hover:opacity-100 inline-block text-xs leading-none border-b border-gray-900">MORE <i class="mdi mdi-arrow-right"></i></a></p>
                     <div class="mt-2">
                         <label class="text-black text-sm" for="count">Count:</label>
