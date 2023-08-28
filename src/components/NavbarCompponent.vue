@@ -176,7 +176,8 @@
           </div>
         </div>
         <!-- For small screen -->
-        <div id="mobile-menu"
+        <div id="mobile-menu">
+        <div v-if="isAuthenticated"
           class="hidden absolute dark:bg-[#a1cd46} z-10 inset-0 md:hidden bg-white flex flex-col h-screen w-full">
           <div class="flex items-center justify-between border-b border-gray-200 dark:border-gray-700 pb-4 p-4">
             <div class="flex items-center space-x-3">
@@ -322,7 +323,19 @@
           </ul>
         </div>
       </div>
+      <div v-else class="flex md:order-2">
+              <router-link to="/login" type="button"
+                class="block lg:inline-block text-md font-bold  text-green-600 sm:hover:border-indigo-400  hover:text-green-700 mx-2 focus:text-[bg-green-800]  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
+                LOGIN
+              </router-link>
+              <router-link to="/signup" type="button"
+                class="block lg:inline-block text-md font-bold  text-green-600 sm:hover:border-indigo-400  hover:text-green-700 mx-2 focus:text-[bg-green-800]  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
+                SIGN UP
+              </router-link>
+            </div>
     </div>
+    </div>
+    
   </div>
 </div>
 </template>

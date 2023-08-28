@@ -87,6 +87,144 @@
 
             <div class="mt-8 flex justify-end border-t border-gray-100 pt-8">
               <div class="w-screen max-w-lg space-y-4">
+                <!-- <dl class="space-y-0.5 text-sm text-gray-700">
+                  <div class="flex justify-between">
+                    <dt>Subtotal</dt>
+                    <dd>£{{ getSubtotal }}</dd>
+                  </div>
+
+                  <div class="flex justify-between">
+                    <dt>VAT</dt>
+                    <dd>£25</dd>
+                  </div>
+
+                  <div class="flex justify-between">
+                    <dt>Discount</dt>
+                    <dd>-£{{ getDiscount }}</dd>
+                  </div>
+
+                  <div class="flex justify-between !text-base font-medium">
+                    <dt>Total</dt>
+                    <dd>£{{ getTotal }}</dd>
+                  </div>
+                </dl> -->
+
+                <!-- <div class="flex justify-end">
+                  <span
+                    class="inline-flex items-center justify-center rounded-full bg-indigo-100 px-2.5 py-0.5 text-indigo-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                      stroke="currentColor" class="-ms-1 me-1.5 h-4 w-4">
+                      <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 010 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 010-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375z" />
+                    </svg>
+
+                    <p class="whitespace-nowrap text-xs">1 Discounts Applied</p>
+                  </span>
+                </div> -->
+
+                <div class="flex justify-end">
+                  <!-- Button trigger modal -->
+                  <a href="#"
+                    class="block rounded bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-600"
+                    data-te-toggle="modal"
+                    data-te-target="#exampleModal"
+                    data-te-ripple-init
+                    data-te-ripple-color="light">
+                    Checkout
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+  </div>
+<!-- Modal -->
+<div
+  data-te-modal-init
+  class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div
+    data-te-modal-dialog-ref
+    class="pointer-events-none relative w-auto translate-y-[-50px] opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:max-w-[500px]">
+    <div
+      class="min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600">
+      <div
+        class="flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
+        <!--Modal title-->
+        <h5
+          class="text-xl font-medium leading-normal text-neutral-800 dark:text-neutral-200"
+          id="exampleModalLabel">
+          Modal title
+        </h5>
+        <!--Close button-->
+        <button
+          type="button"
+          class="box-content rounded-none border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+          data-te-modal-dismiss
+          aria-label="Close">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="h-6 w-6">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!--Modal body-->
+      <div class="relative flex-auto p-4" data-te-modal-body-ref>
+        <section>
+      <div class="min-w-screen min-h-screen bg-gray-100">
+      <div class="mx-auto bg-white ronded max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+        <div class="mx-auto max-w-3xl">
+
+          <div class="mt-2">
+            <ul class="space-y-4">
+              <li class="flex items-center gap-4" v-for="(cart) in cartGetData.cart_items.data" :key="cart.id">
+                <img
+                  src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=830&q=80"
+                  alt="" class="h-16 w-16 rounded object-cover" />
+
+                <div>
+                  <h3 class="text-sm text-gray-900">{{ cart.name }} </h3>
+
+                  <dl class="mt-0.5 space-y-px text-[10px] text-gray-600">
+                    <div>
+                      <dt class="inline">Price:</dt>
+                      <dd class="inline">£ {{ cart.regular_price * cart.qty }}</dd>
+                    </div>
+                    <div>
+                      <dt class="inline">Stock:</dt>
+                      <dd class="inline">{{ cart.stock }}</dd>
+                    </div>
+                    <div>
+                      <dt class="inline">qty:</dt>
+                      <dd class="inline">{{ cart.qty }}</dd>
+                    </div>
+                    <div>
+                      <dt class="inline">Color:</dt>
+                      <dd class="inline">White</dd>
+                    </div>
+
+                  </dl>
+                </div>
+              </li>
+            </ul>
+
+            <div class="mt-8 flex justify-end border-t border-gray-100 pt-8">
+              <div class="w-screen max-w-lg space-y-4">
                 <dl class="space-y-0.5 text-sm text-gray-700">
                   <div class="flex justify-between">
                     <dt>Subtotal</dt>
@@ -121,13 +259,6 @@
                     <p class="whitespace-nowrap text-xs">1 Discounts Applied</p>
                   </span>
                 </div>
-
-                <div class="flex justify-end">
-                  <a href="#"
-                    class="block rounded bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-600">
-                    Checkout
-                  </a>
-                </div>
               </div>
             </div>
           </div>
@@ -135,7 +266,30 @@
       </div>
     </div>
     </section>
+      </div>
+
+      <!--Modal footer-->
+      <div
+        class="flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
+        <button
+          type="button"
+          class="inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200"
+          data-te-modal-dismiss
+          data-te-ripple-init
+          data-te-ripple-color="light">
+          Close
+        </button>
+        <button
+          type="button"
+          class="ml-1 inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+          data-te-ripple-init
+          data-te-ripple-color="light">
+          Save changes
+        </button>
+      </div>
+    </div>
   </div>
+</div>
 </template>
 <script>
 ;
@@ -171,4 +325,11 @@ export default {
     ...mapActions('cart', ['fetchEditData']),
   },
 }; 
+import {
+  Modal,
+  Ripple,
+  initTE,
+} from "tw-elements";
+
+initTE({ Modal, Ripple });
 </script>

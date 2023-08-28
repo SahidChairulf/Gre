@@ -12,6 +12,8 @@
     "tw-elements": "^1.0.0-beta3",
     "vue": "^3.3.4",
     "vue-router": "^4.2.4",
+    "vue-toast-notification": "^3.1.1",
+    "vue-toastification": "^2.0.0-rc.5",
     "vuex": "^4.1.0"
   },
   "devDependencies": {

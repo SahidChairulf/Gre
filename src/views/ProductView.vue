@@ -10,8 +10,8 @@
     <div v-else>
     <main class="my-8">
         <div class="container h-full mx-auto px-6">
-            <h3 class="text-black text-center items-center justify-center text-2xl font-medium">
-                Wrist Watch</h3>
+            <h3 class="text-black text-center items-center justify-center text-2xl font-bold">
+                PRODUCT PAGE</h3>
                 <h3 class="text-black text-sm text-center items-center justify-center font-medium">
                     200+ Products</h3>
         
@@ -32,7 +32,7 @@
     </div>
 </template>
 <script>
-  import { mapGetters, mapActions } from 'vuex';
+  import { mapGetters, mapActions} from 'vuex';
 
 export default {
     computed: {

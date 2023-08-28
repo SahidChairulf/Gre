@@ -43,8 +43,8 @@ const cart = {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`
                 }
-            });
-    
+            })
+            
         //   console.log(response.data);
           commit("CART_INFO_ITEM", response.data);
         } catch (error) {
@@ -102,6 +102,7 @@ const cart = {
                 });
           //   console.log(response.data);
             commit("CART_INFO_ITEM", response.data);
+           
         }
         catch (err) {
             console.log(err);

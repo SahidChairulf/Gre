@@ -69,6 +69,7 @@ import { mapState,mapGetters, mapActions } from 'vuex';
         ...mapActions('cart' , ['addToCart']),
     tambah() {
       this.number++;
+      
     },
     kurang() {
     if (this.number > 1) {

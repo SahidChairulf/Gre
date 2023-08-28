@@ -23,7 +23,7 @@
             <!-- Left Side -->
             <div class="w-full md:w-3/12 md:mx-2">
                 <!-- Profile Card -->
-                <div class="bg-white p-3 border-t-4 border-[#F0A500]">
+                <div class="bg-white p-3 border-t-4 border-green-600">
                     <div class="image overflow-hidden">
                         <img class="h-auto w-full mx-auto"
                             src="https://source.unsplash.com/random/900×700/?male-profile"
@@ -66,7 +66,7 @@
                         <span class="tracking-wide">About</span>
                     </div>
                     <div class="text-gray-700">
-                        <div class="grid md:grid-cols-2 text-sm">
+                        <div class="grid md:grid-cols-2 text-sm" v-for="(address) in getAddres" :key="address.id">
                             <div class="grid grid-cols-2">
                                 <div class="px-4 py-2 font-semibold">First Name</div>
                                 <div class="px-4 py-2">{{ getUser.name }}</div>
@@ -85,11 +85,11 @@
                             </div>
                             <div class="grid grid-cols-2">
                                 <div class="px-4 py-2 font-semibold">Current Address</div>
-                                <div class="px-4 py-2">Beech Creek, PA, Pennsylvania</div>
+                                <div class="px-4 py-2">{{ address.address }}</div>
                             </div>
                             <div class="grid grid-cols-2">
                                 <div class="px-4 py-2 font-semibold">Permanant Address</div>
-                                <div class="px-4 py-2">Arlington Heights, IL, Illinois</div>
+                                <div class="px-4 py-2"></div>
                             </div>
                             <div class="grid grid-cols-2">
                                 <div class="px-4 py-2 font-semibold">Email.</div>
@@ -178,19 +178,26 @@
         </div>
     </div>
 </div>
+<div v-for="(address) in getAddres" :key="address.id">
+    {{ address.address }}
+    {{ address.state }}
+    {{ address.postal_code }}
+</div>
+{{ getAddres }}
 </template>
 <script>
   import { mapGetters, mapActions } from 'vuex';
 
 export default {
     computed: {
-        ...mapGetters('user', ['getUser']),
+        ...mapGetters('user', ['getUser' , 'getAddres']),
     },
     methods: {
-        ...mapActions('user', ['fetchUser']),
+        ...mapActions('user', ['fetchUser' , 'fetchUserAddress']),
     },
     created() {
         this.fetchUser();
+        this.fetchUserAddress();
     },
 }
 </script>
