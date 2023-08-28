@@ -323,16 +323,6 @@
           </ul>
         </div>
       </div>
-      <div v-else class="flex md:order-2">
-              <router-link to="/login" type="button"
-                class="block lg:inline-block text-md font-bold  text-green-600 sm:hover:border-indigo-400  hover:text-green-700 mx-2 focus:text-[bg-green-800]  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
-                LOGIN
-              </router-link>
-              <router-link to="/signup" type="button"
-                class="block lg:inline-block text-md font-bold  text-green-600 sm:hover:border-indigo-400  hover:text-green-700 mx-2 focus:text-[bg-green-800]  p-1 hover:bg-gray-300 sm:hover:bg-transparent rounded-lg">
-                SIGN UP
-              </router-link>
-            </div>
     </div>
     </div>
     

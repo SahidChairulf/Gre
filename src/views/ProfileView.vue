@@ -178,12 +178,6 @@
         </div>
     </div>
 </div>
-<div v-for="(address) in getAddres" :key="address.id">
-    {{ address.address }}
-    {{ address.state }}
-    {{ address.postal_code }}
-</div>
-{{ getAddres }}
 </template>
 <script>
   import { mapGetters, mapActions } from 'vuex';
