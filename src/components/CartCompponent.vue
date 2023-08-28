@@ -23,7 +23,7 @@
             <ul class="space-y-4">
               <li class="flex items-center gap-4" v-for="(cart) in cartGetData.cart_items.data" :key="cart.id">
                 <img
-                  src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=830&q=80"
+                  src="https://img.freepik.com/free-vector/forgot-password-concept-illustration_114360-1328.jpg?size=626&ext=jpg&ga=GA1.1.1506769116.1690802231&semt=ais"
                   alt="" class="h-16 w-16 rounded object-cover" />
 
                 <div>
@@ -117,10 +117,12 @@
 
                 <div class="flex justify-end">
                   <!-- Button trigger modal -->
+                  <RouterLink to="/checkout">
                   <a href="#"
                     class="block rounded bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-600">
                     Checkout
                   </a>
+                </RouterLink>
                 </div>
               </div>
             </div>
@@ -133,7 +135,6 @@
 
 </template>
 <script>
-;
 import { mapState, mapActions } from 'vuex';
 
 export default {
@@ -166,11 +167,4 @@ export default {
     ...mapActions('cart', ['fetchEditData']),
   },
 }; 
-import {
-  Modal,
-  Ripple,
-  initTE,
-} from "tw-elements";
-
-initTE({ Modal, Ripple });
 </script>

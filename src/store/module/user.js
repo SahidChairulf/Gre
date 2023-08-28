@@ -20,7 +20,7 @@ const user = {
             }
         }
         );
-        console.log(data.data)
+        // console.log(data.data)
         commit("SET_USER", data.data['user']);
       } catch (error) {
         alert(error);
@@ -37,7 +37,8 @@ const user = {
         }
         );
         // console.log(getUserAddres.data.data)
-        commit("SET_USER_ADDRESS", getUserAddres.data['data']);
+        commit("SET_USER_ADDRESS", getUserAddres.data);
+        return getUserAddres.data
       } catch (error) {
         alert(error);
         console.log(error);

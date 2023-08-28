@@ -2,6 +2,10 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import SingleProduk from "../views/SingleProduct.vue"
 import CartCompponentVue from '../components/CartCompponent.vue';
+import CheckoutCompponent from '../components/CheckoutCommpponent.vue'
+import OrderCommponent from '../components/OrderCommponent.vue'
+
+const merk = 'ArtisanAlley';
 
 function guardMyroute(to, from, next)
 {
@@ -76,7 +80,19 @@ const router = createRouter({
       path: '/signup',
       name: 'SignUp',
       component: () => import('../views/SignupView.vue')
-    }
+    },
+    {
+      path: '/checkout',
+      name: 'Checkout',
+      component: CheckoutCompponent
+    },
+    {
+      path: '/order/:orderCode',
+      name: 'Order',
+      component: OrderCommponent,
+      props: true,
+      meta: { title: merk + ' | ' + 'Order' },
+    },
   ]
 })
 
