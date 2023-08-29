@@ -18,7 +18,7 @@ const order = {
           },
         });
         commit('SET_ORDER', responseOrder.data['data']);
-        console.log(responseOrder.data);
+        // console.log(responseOrder.data);
       } catch (error) {
         console.error(error);
         alert(error);

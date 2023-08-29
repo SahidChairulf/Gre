@@ -20,7 +20,7 @@ const user = {
             }
         }
         );
-        // console.log(data.data)
+        console.log(data.data)
         commit("SET_USER", data.data['user']);
       } catch (error) {
         alert(error);
