@@ -52,7 +52,7 @@ module.exports = {
                                 </div>
                             </div>
                         </div>
-                        <div class="mb-6 pb-6 border-b border-gray-200">
+                        <!-- <div class="mb-6 pb-6 border-b border-gray-200">
                             <div class="-mx-2 flex items-end justify-end">
                                 <div class="flex-grow px-2 lg:max-w-xs">
                                     <label class="text-gray-600 font-semibold text-sm mb-2 ml-1">Discount code</label>
@@ -67,7 +67,7 @@ module.exports = {
                                         class="block w-full max-w-xs mx-auto border border-transparent bg-gray-400 hover:bg-gray-500 focus:bg-gray-500 text-white rounded-md px-5 py-2 font-semibold">APPLY</button>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="mb-6 pb-6 border-b border-gray-200 text-gray-800">
                             <div class="w-full flex mb-3 items-center">
                                 <div class="flex-grow">
@@ -79,7 +79,7 @@ module.exports = {
                             </div>
                             <div class="w-full flex items-center">
                                 <div class="flex-grow">
-                                    <span class="text-gray-600">Discount</span>
+                                    <span class="text-gray-600">Delivery</span>
                                 </div>
                                 <div class="pl-3">
                                     <span class="font-semibold">-$8.00</span>
