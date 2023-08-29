@@ -83,22 +83,22 @@
                 <dl class="space-y-0.5 text-sm text-gray-700">
                   <div class="flex justify-between">
                     <dt>Subtotal</dt>
-                    <dd>£{{ getSubtotal }}</dd>
+                    <dd>${{ getSubtotal }}</dd>
                   </div>
 
                   <div class="flex justify-between">
-                    <dt>VAT</dt>
-                    <dd>£25</dd>
+                    <dt>Delivery</dt>
+                    <dd>$8.00</dd>
                   </div>
 
-                  <div class="flex justify-between">
+                  <!-- <div class="flex justify-between">
                     <dt>Discount</dt>
-                    <dd>-£{{ getDiscount }}</dd>
-                  </div>
+                    <dd>-${{ getDiscount }}</dd>
+                  </div> -->
 
                   <div class="flex justify-between !text-base font-medium">
                     <dt>Total</dt>
-                    <dd>£{{ getTotal }}</dd>
+                    <dd>${{ getTotal }}</dd>
                   </div>
                 </dl>
 
@@ -146,16 +146,16 @@ export default {
         0
       )
     },
-    getDiscount() {
-      return this.cartGetData.cart_items.data.reduce(
-        (a, b) => a + b.dicounted_price,
-        0
-      )
-    },
+    // getDiscount() {
+    //   return this.cartGetData.cart_items.data.reduce(
+    //     (a, b) => a + b.dicounted_price,
+    //     0
+    //   )
+    // },
     getTotal() {
       return this.cartGetData.cart_items.data.reduce(
-        (a, b) => a + b.regular_price * b.qty - b.dicounted_price,
-        0
+        (a, b) => a + (b.regular_price * b.qty),
+        80000
       )
     },
   },

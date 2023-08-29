@@ -5,7 +5,6 @@ import CartCompponentVue from '../components/CartCompponent.vue';
 import CheckoutCompponent from '../components/CheckoutCommpponent.vue'
 import OrderCommponent from '../components/OrderCommponent.vue'
 
-const merk = 'ArtisanAlley';
 
 function guardMyroute(to, from, next)
 {
@@ -91,7 +90,6 @@ const router = createRouter({
       name: 'Order',
       component: OrderCommponent,
       props: true,
-      meta: { title: merk + ' | ' + 'Order' },
     },
   ]
 })

@@ -144,7 +144,7 @@ const cart = {
             }
           );
           console.log(response.data.message);
-          commit('CART_INFO_ITEM', response.data.message)
+          commit('CART_INFO_ITEM', response.data)
           dispatch("fetchgetCartData");
         } catch (error) {
           alert("Error");

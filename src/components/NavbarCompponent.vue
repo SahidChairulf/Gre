@@ -118,8 +118,7 @@
           </div>
         </div>
         <!-- For small screen -->
-        <div id="mobile-menu">
-        <div v-if="isAuthenticated"
+        <div v-if="isAuthenticated" id="mobile-menu"
           class="hidden absolute dark:bg-[#a1cd46} z-10 inset-0 md:hidden bg-white flex flex-col h-screen w-full">
           <div class="flex items-center justify-between border-b border-gray-200 dark:border-gray-700 pb-4 p-4">
             <div class="flex items-center space-x-3">
@@ -269,7 +268,6 @@
     </div>
     
   </div>
-</div>
 </template>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap');

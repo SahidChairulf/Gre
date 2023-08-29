@@ -5,6 +5,7 @@ import kategori from "./module/kategori"
 import brand from "./module/brand";
 import user from "./module/user";
 import cart from "./module/cart";
+import order from "./module/order";
 const store = createStore({
   modules: {
     auth,
@@ -12,7 +13,8 @@ const store = createStore({
     kategori,
     brand,
     user,
-    cart
+    cart,
+    order
   },
 });
 

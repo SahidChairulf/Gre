@@ -82,7 +82,7 @@ module.exports = {
                                     <span class="text-gray-600">Discount</span>
                                 </div>
                                 <div class="pl-3">
-                                    <span class="font-semibold">-${{ getDiscount }}</span>
+                                    <span class="font-semibold">-$8.00</span>
                                 </div>
                             </div>
                         </div>
@@ -199,16 +199,16 @@ export default {
                 0
             )
         },
-        getDiscount() {
-            return this.cartGetData.cart_items.data.reduce(
-                (a, b) => a + b.dicounted_price,
-                0
-            )
-        },
+        // getDiscount() {
+        //     return this.cartGetData.cart_items.data.reduce(
+        //         (a, b) => a + b.dicounted_price,
+        //         0
+        //     )
+        // },
         getTotal() {
             return this.cartGetData.cart_items.data.reduce(
-                (a, b) => a + b.regular_price * b.qty - b.dicounted_price,
-                0
+                (a, b) => a + (b.regular_price * b.qty),
+                80000
             )
         },
     },
@@ -237,7 +237,7 @@ export default {
         await this.$store
         .dispatch('cart/checkoutCart', checkoutPayload)
         .then(() => {
-          this.$router.push(`/order/${this.getCartData.cart_items.data.order_code}`);
+          this.$router.push(`/order/${this.getCartData.order_code}`);
         });
         }
     },
