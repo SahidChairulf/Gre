@@ -13,8 +13,7 @@
         <div class="md:flex items-center -mx-10">
             <div class="w-full md:w-1/2 px-10 mb-10 md:mb-0">
                 <div class="relative">
-                    <img src="https://pngimg.com/uploads/raincoat/raincoat_PNG53.png" class="w-full relative z-10" alt="">
-                    <div class="border-4 border-green-200 absolute top-10 bottom-10 left-10 right-10 z-0"></div>
+                    <img src="https://img.freepik.com/free-vector/forgot-password-concept-illustration_114360-1328.jpg?size=626&ext=jpg&ga=GA1.1.1506769116.1690802231&semt=ais" class="w-full relative z-10" alt="">
                 </div>
             </div>
             <div class="w-full md:w-1/2 px-10">

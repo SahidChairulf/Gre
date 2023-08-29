@@ -26,7 +26,7 @@
                 <div class="bg-white p-3 border-t-4 border-green-600">
                     <div class="image overflow-hidden">
                         <img class="h-auto w-full mx-auto"
-                            src="https://source.unsplash.com/random/900×700/?male-profile"
+                            src="https://img.freepik.com/premium-photo/title-generated-correctly_956981-2432.jpg?size=626&ext=jpg&ga=GA1.1.1506769116.1690802231&semt=ais"
                             alt="">
                     </div>
                     <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">{{ getUser.name }}</h1>

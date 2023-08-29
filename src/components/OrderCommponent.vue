@@ -16,9 +16,9 @@
                         <div
                             class="mt-4 md:mt-6 flex flex-col md:flex-row justify-start items-start md:items-center md:space-x-6 xl:space-x-8 w-full">
                             <div class="pb-4 md:pb-8 w-full md:w-40">
-                                <img class="w-full hidden md:block" src="https://i.ibb.co/84qQR4p/Rectangle-10.png"
+                                <img class="w-full hidden md:block" src="https://img.freepik.com/free-vector/forgot-password-concept-illustration_114360-1328.jpg?size=626&ext=jpg&ga=GA1.1.1506769116.1690802231&semt=ais"
                                     alt="dress" />
-                                <img class="w-full md:hidden" src="https://i.ibb.co/L039qbN/Rectangle-10.png" alt="dress" />
+                                <img class="w-full md:hidden" src="https://img.freepik.com/free-vector/forgot-password-concept-illustration_114360-1328.jpg?size=626&ext=jpg&ga=GA1.1.1506769116.1690802231&semt=ais" alt="dress" />
                             </div>
                             <div
                                 class="border-b border-gray-200 md:flex-row flex-col flex justify-between items-start w-full pb-8 space-y-4 md:space-y-0">
@@ -90,7 +90,7 @@
                         <div class="flex flex-col justify-start items-start flex-shrink-0">
                             <div
                                 class="flex justify-center w-full md:justify-start items-center space-x-4 py-8 border-b border-gray-200">
-                                <img src="https://i.ibb.co/5TSg7f6/Rectangle-18.png" alt="avatar" />
+                                <img src="https://img.freepik.com/premium-photo/title-generated-correctly_956981-2432.jpg?size=626&ext=jpg&ga=GA1.1.1506769116.1690802231&semt=ais" class="w-16 h-16" alt="avatar" />
                                 <div class="flex justify-start items-start flex-col space-y-2">
                                     <p class="text-base dark:text-white font-semibold leading-4 text-left text-gray-800">
                                         {{ getOrder.user.name }}</p>

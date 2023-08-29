@@ -40,23 +40,12 @@
             </ul>
             <div v-if="isAuthenticated" class=" justify-end flex items-center space-x-4 xl:space-x-8">
               <div class="hidden lg:flex items-center space-x-4 xl:space-x-8">
-                <RouterLink to="/">
-                  <button aria-label="view favourites"
-                    class="text-green-600 hover:text-green-800 dark:hover:text-gray-300 dark:text-white focus:outline-none">
-                    <svg class="fill-stroke" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                      xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M20.8401 4.60987C20.3294 4.09888 19.7229 3.69352 19.0555 3.41696C18.388 3.14039 17.6726 2.99805 16.9501 2.99805C16.2276 2.99805 15.5122 3.14039 14.8448 3.41696C14.1773 3.69352 13.5709 4.09888 13.0601 4.60987L12.0001 5.66987L10.9401 4.60987C9.90843 3.57818 8.50915 2.99858 7.05012 2.99858C5.59109 2.99858 4.19181 3.57818 3.16012 4.60987C2.12843 5.64156 1.54883 7.04084 1.54883 8.49987C1.54883 9.95891 2.12843 11.3582 3.16012 12.3899L4.22012 13.4499L12.0001 21.2299L19.7801 13.4499L20.8401 12.3899C21.3511 11.8791 21.7565 11.2727 22.033 10.6052C22.3096 9.93777 22.4519 9.22236 22.4519 8.49987C22.4519 7.77738 22.3096 7.06198 22.033 6.39452C21.7565 5.72706 21.3511 5.12063 20.8401 4.60987V4.60987Z"
-                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                  </button>
-                </RouterLink>
                 <RouterLink to="/cart">
                   <div class="flex items-center justify-center bg-white">
                     <div class="relative scale-75">
                       <button aria-label="go to cart"
                     class="text-green-600 hover:text-green-800 dark:hover:text-gray-300 dark:text-white focus:outline-none">
-                    <svg class="fill-stroke" width="26" height="26" viewBox="0 0 26 26" fill="none"
+                    <svg class="fill-stroke" width="32" height="32" viewBox="0 0 26 26" fill="none"
                       xmlns="http://www.w3.org/2000/svg">
                       <path
                         d="M5 1L1 5.8V22.6C1 23.2365 1.28095 23.847 1.78105 24.2971C2.28115 24.7471 2.95942 25 3.66667 25H22.3333C23.0406 25 23.7189 24.7471 24.219 24.2971C24.719 23.847 25 23.2365 25 22.6V5.8L21 1H5Z"
@@ -232,20 +221,6 @@
               </a>
             </li>
           </RouterLink>
-            <li>
-              <a href="javascript:void(0)"
-                class="dark:text-white text-green-600 hover:text-green-800 flex items-center space-x-2 focus:outline-none hover:underline">
-                <div>
-                  <svg class="fill-stroke" width="20" height="20" viewBox="0 0 20 20" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M17.3651 3.84172C16.9395 3.41589 16.4342 3.0781 15.8779 2.84763C15.3217 2.61716 14.7255 2.49854 14.1235 2.49854C13.5214 2.49854 12.9252 2.61716 12.369 2.84763C11.8128 3.0781 11.3074 3.41589 10.8818 3.84172L9.99847 4.72506L9.11514 3.84172C8.25539 2.98198 7.08933 2.49898 5.87347 2.49898C4.65761 2.49898 3.49155 2.98198 2.6318 3.84172C1.77206 4.70147 1.28906 5.86753 1.28906 7.08339C1.28906 8.29925 1.77206 9.46531 2.6318 10.3251L3.51514 11.2084L9.99847 17.6917L16.4818 11.2084L17.3651 10.3251C17.791 9.89943 18.1288 9.39407 18.3592 8.83785C18.5897 8.28164 18.7083 7.68546 18.7083 7.08339C18.7083 6.48132 18.5897 5.88514 18.3592 5.32893C18.1288 4.77271 17.791 4.26735 17.3651 3.84172V3.84172Z"
-                      stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                </div>
-                <p class="text-bold">Wishlist</p>
-              </a>
-            </li>
             <RouterLink to="/user">
             <li>
               <a href="javascript:void(0)"
